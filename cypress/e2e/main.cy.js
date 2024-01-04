@@ -4,22 +4,17 @@ describe('Main', () => {
   beforeEach(()=>{
     cy.writeFile('cypress/fixtures/ipoData.txt','') //TO clear data before each test run
   })
-  it('passes', () => {
-    const user=[
- 
-    ]
-    user.forEach((user)=>{
-
-      cy.writeFile('cypress/fixtures/ipoData.txt',`\nUser Name: ${user.userName}\n`,{ flag: 'a+' })
+  it('Ipo Results', () => {
+      cy.writeFile('cypress/fixtures/ipoData.txt',`\nUser Name: ${Cypress.env("USERNAME")}\n`,{ flag: 'a+' })
 
       cy.log(user)
       cy.visit('/')
       cy.get('body')
       cy.get('form[name="loginForm"]').should('exist').then((form)=>{
         cy.wrap(form).within(()=>{
-          cy.get('[class="selection"]').type(`${user.bank}{enter}`,{log:false}) //bank name
-          cy.get('[name="username"]').type(user.dpid,{log:false}) // dpid
-          cy.get('[id="password"]').type(user.password,{log:false})//password
+          cy.get('[class="selection"]').type(`${Cypress.env("BANK")}{enter}`,{log:false}) //bank name
+          cy.get('[name="username"]').type(Cypress.env("DPID"),{log:false}) // dpid
+          cy.get('[id="password"]').type(Cypress.env("PASSWORD"),{log:false})//password
           cy.get('button[type="submit"]').click()
          // cy.get('.header-menu__item--logout-desktop-view').click(); // Logout button
            
@@ -29,7 +24,7 @@ describe('Main', () => {
         }).click();
         cy.get('[class="nav-item"]').contains("Application Report").click()
         //cy.wait(2000)
-        for(let i=0;i<10;i++){
+        for(let i=0;i<Cypress.env("IPONUMBER");i++){
         cy.get('.company-list').then((report)=>{
           cy.wrap(report).eq(i).find('.btn-issue').click();
           cy.wait(1000)
@@ -62,7 +57,7 @@ describe('Main', () => {
 
 
       })
-    })
+     
    
   // Use cy.exec() with the constructed path
 cy.exec(`node  mailer.js`).its('code')
