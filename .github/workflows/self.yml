@@ -27,7 +27,7 @@ jobs:
           CYPRESS_USERNAME: ${{ secrets.USERNAME }}
           CYPRESS_DPID: ${{ secrets.DPID }}
           CYPRESS_PASSWORD: ${{ secrets.PASSWORD }}
-          CYPRESS_BANK: ${{ secrets.MY_BANK }}
+          CYPRESS_BANK: ${{ secrets.BANK }}
           CYPRESS_IPONUMBER: ${{ github.event.inputs.IPONUMBER }}
           EMAIL_USER: ${{ secrets.EMAIL_USER }}
           EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
