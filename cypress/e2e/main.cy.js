@@ -6,8 +6,6 @@ describe('Main', () => {
   })
   it('Ipo Results', () => {
       cy.writeFile('cypress/fixtures/ipoData.txt',`\nUser Name: ${Cypress.env("USERNAME")}\n`,{ flag: 'a+' })
-
-      cy.log(user)
       cy.visit('/')
       cy.get('body')
       cy.get('form[name="loginForm"]').should('exist').then((form)=>{
