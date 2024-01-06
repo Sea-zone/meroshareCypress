@@ -22,12 +22,11 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v4
         with:
-          spec: cypress/e2e/main.cy.js
+          spec: cypress/e2e/ipoResults.cy.js
         env:
-          CYPRESS_USERNAME: ${{ secrets.USERNAME }}
-          CYPRESS_DPID: ${{ secrets.DPID }}
-          CYPRESS_PASSWORD: ${{ secrets.PASSWORD }}
-          CYPRESS_BANK: ${{ secrets.BANK }}
+          CYPRESS_USERNAME: ${{ secrets.ME_USERNAME }}
+          CYPRESS_DP: ${{ secrets.ME_DPID }}
+          CYPRESS_PASSWORD: ${{ secrets.ME_PASSWORD }}
           CYPRESS_IPONUMBER: ${{ github.event.inputs.IPONUMBER }}
           EMAIL_USER: ${{ secrets.EMAIL_USER }}
           EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
