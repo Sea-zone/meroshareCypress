@@ -3,9 +3,10 @@ const { defineConfig } = require("cypress");
 module.exports = defineConfig({
 
   env:{
-    bankName:'BANK',
-    dpid:'DPID',
-    password:'PASSWORD',
+   'USERNAME':'USERNAME',
+    'DP':'DP',
+    'PASSWORD':'PASSWORD',
+    'IPONUMBER':'IPONUMBER',
   }
   ,
   e2e: {

@@ -1,5 +1,17 @@
 
-
+Cypress.Commands.add('login',(DP,USERNAME,PASSWORD)=>{
+    cy.visit('/')
+      cy.get('form[name="loginForm"]').should('exist').then((form)=>{
+        cy.wrap(form).within(()=>{
+          cy.get('[class="selection"]').type(`${DP}{enter}`,{log:false}) //bank name
+          cy.get('[name="username"]').type( USERNAME,{log:false}) // dpid
+          cy.get('[id="password"]').type( PASSWORD,{log:false})//password
+          cy.get('button[type="submit"]').click()
+         
+           
+        })
+})
+})
 
 
 

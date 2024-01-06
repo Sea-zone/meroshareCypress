@@ -5,23 +5,13 @@ describe('Main', () => {
     cy.writeFile('cypress/fixtures/ipoData.txt','') //TO clear data before each test run
   })
   it('Ipo Results', () => {
-      cy.writeFile('cypress/fixtures/ipoData.txt',`\nUser Name: ${Cypress.env("USERNAME")}\n`,{ flag: 'a+' })
-      cy.visit('/')
-      cy.get('body')
-      cy.get('form[name="loginForm"]').should('exist').then((form)=>{
-        cy.wrap(form).within(()=>{
-          cy.get('[class="selection"]').type(`${Cypress.env("BANK")}{enter}`,{log:false}) //bank name
-          cy.get('[name="username"]').type(Cypress.env("DPID"),{log:false}) // dpid
-          cy.get('[id="password"]').type(Cypress.env("PASSWORD"),{log:false})//password
-          cy.get('button[type="submit"]').click()
-         // cy.get('.header-menu__item--logout-desktop-view').click(); // Logout button
-           
-        })
+      cy.writeFile('cypress/fixtures/ipoData.txt',`\nUser Name: ${Cypress.env("ME_USERNAME")}\n`,{ flag: 'a+' })
+      cy.login(Cypress.env('ME_DP'), Cypress.env('ME_USERNAME'), Cypress.env('ME_PASSWORD'))
         cy.get('li.nav-item').contains("My ASBA", {
           matchCase: false
         }).click();
         cy.get('[class="nav-item"]').contains("Application Report").click()
-        //cy.wait(2000)
+         
         for(let i=0;i<Cypress.env("IPONUMBER");i++){
         cy.get('.company-list').then((report)=>{
           cy.wrap(report).eq(i).find('.btn-issue').click();
@@ -54,7 +44,7 @@ describe('Main', () => {
       cy.get('.header-menu__item--logout-desktop-view > .nav-link > .msi').click()
 
 
-      })
+     
      
    
   // Use cy.exec() with the constructed path
