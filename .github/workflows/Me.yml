@@ -1,7 +1,6 @@
 name: "Ipo results : Self"
 
 on:
-
   workflow_dispatch:
     inputs:
       IPONUMBER:
@@ -10,7 +9,6 @@ on:
         default: "10"
         
 jobs:
-
   Ipo_results:
     name: Self
     runs-on: ubuntu-20.04
@@ -30,11 +28,10 @@ jobs:
           CYPRESS_IPONUMBER: ${{ github.event.inputs.IPONUMBER }}
           EMAIL_USER: ${{ secrets.EMAIL_USER }}
           EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
-
-           
       - name: Save screenshot
         uses: actions/upload-artifact@v2
         with:
           name: screenshot
           path: cypress/screenshots
           retention-days: 10
+
