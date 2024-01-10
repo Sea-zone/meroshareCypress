@@ -21,12 +21,16 @@ Change the visibility to "Private" and confirm.
 
 ### Add GitHub Secrets:
 
-BANK: Your bank number (e.g., 16000).
-USERNAME: Your MeroShare username.
-DPID: Your DPID (e.g., 17435).
-PASSWORD: Your MeroShare password.
-EMAIL_USER: Your email address.
-EMAIL_PASSWORD: Your email password.
+
+    TO USE self.yml
+    ME_DP: ENTER YOUR BANK DP (EXAMPLE 16100)
+    ME_USERNAME: ENTER YOUR USERNAME (EXAMPLE 147308)
+    ME_PASSWORD: ENTER YOUR MEROSHARE PASSWORD (EXAMPLE PASSWORD)
+    EMAIL_USER: Your email address .
+    EMAIL_PASSWORD: Your email password.(USE APP PASSWORD)
+
+
+
 Generate App Password for Gmail:
 
 If you're using a Gmail account for email notifications, generate an App Password for enhanced security. Instructions can be found here.
