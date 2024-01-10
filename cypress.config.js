@@ -3,7 +3,7 @@ const { defineConfig } = require("cypress");
 module.exports = defineConfig({
 
   env:{
-   'USERNAME':'USERNAME',
+    'USERNAME':'USERNAME',
     'DP':'DP',
     'PASSWORD':'PASSWORD',
     'IPONUMBER':'IPONUMBER',
@@ -16,3 +16,10 @@ module.exports = defineConfig({
     baseUrl:'https://meroshare.cdsc.com.np/'
   },
 });
+
+
+/*
+
+ 
+
+*/
