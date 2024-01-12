@@ -7,24 +7,12 @@ Cypress.Commands.add('login',(DP,USERNAME,PASSWORD)=>{
           cy.get('[name="username"]').type( USERNAME,{log:false}) // dpid
           cy.get('[id="password"]').type( PASSWORD,{log:false})//password
           cy.get('button[type="submit"]').click()
-         
-           
         })
 })
 })
 
 
-
-//Remove the contents of the text file
- 
-
-
-
-
-
-
-
-
+//Remove the contents of the text file before each test
 
 // ***********************************************
 // This example commands.js shows you how to

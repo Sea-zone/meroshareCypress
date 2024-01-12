@@ -8,7 +8,6 @@ const EMAIL_PASSWORD = process.env.EMAIL_PASSWORD || 'your-password';
  
 
 // Creating transporter object using gmail smtp
-
 const transporter = nodemailer.createTransport({
     service: 'gmail',
     host: 'smtp.gmail.com',
@@ -21,13 +20,12 @@ const transporter = nodemailer.createTransport({
 });
 
 // email options
-
 const mailOptions={
     from:  EMAIL_USER,   // Replace with your Gmail email address
     to: EMAIL_USER,    // Replace with the recipient's email address
     subject:'Mero share IPO Results',//subject of email
     text:"Created by Cronic7 with bordem.Here are your ipo results",//Message of the email
-//attachments
+    //attachments
     attachments: [
         {
           filename: 'ipoData.txt',  // Replace with your PDF file name
@@ -40,14 +38,10 @@ const mailOptions={
     //       contentType: 'image/jpeg'
           
     //     }
-      ]
-       
-    
+    ]
 }
 
 //sent the email
-
-
 transporter.sendMail(mailOptions,(error,info)=>{
     if(error){
         console.error("Error:",error.msg)
