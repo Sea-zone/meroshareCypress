@@ -5,7 +5,7 @@ describe('Main', () => {
     cy.writeFile('cypress/fixtures/ipoData.txt','') //TO clear data before each test run
   })
   it('Ipo Results', () => {
-      cy.writeFile('cypress/fixtures/ipoData.txt',`\nUser Name: ${Cypress.env("ME_USERNAME")}\n`,{ flag: 'a+' })
+      cy.writeFile('cypress/fixtures/ipoData.txt',`\nUser Name: ${Cypress.env("USERNAME")}\n`,{ flag: 'a+' })
       cy.login(Cypress.env('DP'), Cypress.env('USERNAME'), Cypress.env('PASSWORD'))
         cy.get('li.nav-item').contains("My ASBA", {
           matchCase: false
@@ -15,7 +15,7 @@ describe('Main', () => {
         for(let i=0;i<Cypress.env("IPONUMBER");i++){
         cy.get('.company-list').then((report)=>{
           cy.wrap(report).eq(i).find('.btn-issue').click();
-          cy.wait(1000)
+          cy.wait(2000)
           //save data
           cy.get('[tooltip="Company Name"]').invoke('text').as('ipoName');
           cy.get('[class="form-group"]').contains("Status").parent().parent().find('[class="input-group"]').invoke('text').as('ipoStatus');
