@@ -7,6 +7,7 @@ module.exports = defineConfig({
     'DP':'DP',
     'PASSWORD':'PASSWORD',
     'IPONUMBER':'IPONUMBER',
+ 
   }
   ,
   e2e: {
